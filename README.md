@@ -22,7 +22,7 @@ O checklist abaixo detalha os requisitos obrigatórios mínimos no projeto.
 
 | Requisito                                             | Status                    | Comentário |
 | -------------                                         |:--------------:           |  ---  |
-| Requisico                           | right-aligned             | :heavy_check_mark:  |
+| Requisito                           |              | :heavy_check_mark:  |
 
 # Vídeo Demonstração
 
