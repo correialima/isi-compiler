@@ -5,10 +5,10 @@ O objetivo deste trabalho é desenvolver os aspectos práticos da IsiLanguage. U
 
 ### Integrantes
 
-Lucas Henrique ...          - RA: 11058015 
-Rafael Correia de Lima      - RA: 21004515  
-Renan Gonçalves Miranda     - RA: 11069212  
-Thais ...                   - RA: 
+Lucas Henrique Gois de Campos - RA: 11058015  
+Rafael Correia de Lima        - RA: 21004515  
+Renan Gonçalves Miranda       - RA: 11069212  
+Thais ...                     - RA: 
 
 ## Gramática da IsiLanguage
 
