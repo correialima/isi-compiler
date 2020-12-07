@@ -13,7 +13,7 @@ Thais ...                     - RA:
 ## Gramática da IsiLanguage
 
 As regras de produção abaixo re
-
+```
 Prog              -> **programa** Declara bloco **fimprog.**  
 Declara           -> **declare** Id (',' Id)\*.  
 Bloco             -> (Cmd.)+  
@@ -29,7 +29,7 @@ Fator             -> Num | Id | ( Expr )
 Texto             -> "( 0..9 | a..z | A..Z | ' ' )+"  
 Num               -> ( 0..9 ) +  
 Id                -> ( a..z | A..Z ) ( a..z | A..Z | 0..9 )*  
-
+```
 ## Requisitos Obrigatórios
 O checklist abaixo detalha os requisitos obrigatórios mínimos no projeto.
 
