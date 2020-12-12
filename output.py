@@ -1,14 +1,17 @@
 def main():
-	double  a;
-	double  b;
-	String  t1;
-	a = input()
-	b = input()
-	a = 1+2*3/b
+### Declaração de variáveis
+	# Em Python não existe a declaração de variáveis 	numero	a
+	# Em Python não existe a declaração de variáveis 	numero	b
+	# Em Python não existe a declaração de variáveis 	texto	t1
+
+	a = float(input())
+	b = float(input())
+	a = 1+2*3/b*b
 	if (a>b):
-	print(a);
+	print(a)
 else:
-	print(b);
+	print(b)
+
 
 if __name__ == '__main__':
 	main()

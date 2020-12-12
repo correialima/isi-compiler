@@ -10,7 +10,7 @@ public class CommandEscrita extends AbstractCommand {
 	@Override
 	public String generatePythonCode() {
 		// TODO Auto-generated method stub
-		return "print("+id+");";
+		return "print("+id+")";
 	}
 	@Override
 	public String toString() {
