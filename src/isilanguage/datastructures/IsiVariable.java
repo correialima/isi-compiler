@@ -35,7 +35,7 @@ public class IsiVariable extends IsiSymbol {
 		return "IsiVariable [name=" + name + ", type=" + type + ", value=" + value + "]";
 	}
 	
-	public String generateJavaCode() {
+	public String generatePythonCode() {
        String str;
        if (type == NUMBER) {
     	   str = "double ";

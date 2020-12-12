@@ -12,9 +12,9 @@ public class CommandLeitura extends AbstractCommand {
 		this.var = var;
 	}
 	@Override
-	public String generateJavaCode() {
+	public String generatePythonCode() {
 		// TODO Auto-generated method stub
-		return id +"= _key." + (var.getType()==IsiVariable.NUMBER? "nextDouble();": "nextLine();");
+		return id +" = input()";
 	}
 	@Override
 	public String toString() {

@@ -14,21 +14,20 @@ public class IsiProgram {
 
 	public void generateTarget() {
 		StringBuilder str = new StringBuilder();
-		str.append("import java.util.Scanner;\n");
-		str.append("public class MainClass{ \n");
-		str.append("  public static void main(String args[]){\n ");
-		str.append("      Scanner _key = new Scanner(System.in);\n");
+		str.append("def main():\n");
 		for (IsiSymbol symbol: varTable.getAll()) {
-			str.append(symbol.generateJavaCode()+"\n");
+			str.append("\t");
+			str.append(symbol.generatePythonCode()+"\n");
 		}
 		for (AbstractCommand command: comandos) {
-			str.append(command.generateJavaCode()+"\n");
+			str.append("\t");
+			str.append(command.generatePythonCode()+"\n");
 		}
-		str.append("  }");
-		str.append("}");
-		
+
+		str.append("if __name__ == '__main__':\n");
+		str.append("\tmain()");
 		try {
-			FileWriter fr = new FileWriter(new File("MainClass.java"));
+			FileWriter fr = new FileWriter(new File("output.py"));
 			fr.write(str.toString());
 			fr.close();
 		}

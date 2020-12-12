@@ -1,7 +1,7 @@
 # IsiLanguage
 
 Projeto desenvolvido na disciplina de Compiladores na UFABC.
-O objetivo deste trabalho é desenvolver os aspectos práticos da IsiLanguage. Uma linguagem de programação imperativa muito próxima do Português estruturado. 
+O objetivo deste trabalho é desenvolver os aspectos práticos da isilanguage. Uma linguagem de programação imperativa muito próxima do Português estruturado. 
 
 ### Integrantes
 

@@ -8,9 +8,9 @@ public class CommandEscrita extends AbstractCommand {
 		this.id = id;
 	}
 	@Override
-	public String generateJavaCode() {
+	public String generatePythonCode() {
 		// TODO Auto-generated method stub
-		return "System.out.println("+id+");";
+		return "print("+id+");";
 	}
 	@Override
 	public String toString() {

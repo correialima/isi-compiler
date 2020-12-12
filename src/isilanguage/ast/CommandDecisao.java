@@ -14,21 +14,20 @@ public class CommandDecisao extends AbstractCommand {
 		this.listaFalse = lf;
 	}
 	@Override
-	public String generateJavaCode() {
+	public String generatePythonCode() {
 		// TODO Auto-generated method stub
 		StringBuilder str = new StringBuilder();
-		str.append("if ("+condition+") {\n");
+		str.append("if ("+condition+"):\n");
 		for (AbstractCommand cmd: listaTrue) {
-			str.append(cmd.generateJavaCode());
+			str.append("\t");
+			str.append(cmd.generatePythonCode()+"\n");
 		}
-		str.append("}");
 		if (listaFalse.size() > 0) {
-			str.append("else {\n");
+			str.append("else:\n");
 			for (AbstractCommand cmd: listaFalse) {
-				str.append(cmd.generateJavaCode());
+				str.append("\t");
+				str.append(cmd.generatePythonCode()+"\n");
 			}
-			str.append("}\n");
-		
 		}
 		return str.toString();
 	}

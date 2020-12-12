@@ -12,9 +12,9 @@ public class CommandAtribuicao extends AbstractCommand{
 		this.expr = expr;
 	}
 	@Override
-	public String generateJavaCode() {
+	public String generatePythonCode() {
 		// TODO Auto-generated method stub
-		return id + " = "+expr+";";
+		return id + " = "+expr;
 	}
 	@Override
 	public String toString() {
