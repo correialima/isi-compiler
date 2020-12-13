@@ -8,9 +8,9 @@ public class CommandEscrita extends AbstractCommand {
 		this.id = id;
 	}
 	@Override
-	public String generatePythonCode() {
+	public String generatePythonCode(int indentLevel) {
 		// TODO Auto-generated method stub
-		return "print("+id+")";
+		return "\t".repeat(indentLevel)+"print("+id+")";
 	}
 	@Override
 	public String toString() {

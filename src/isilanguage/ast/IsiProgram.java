@@ -15,17 +15,20 @@ public class IsiProgram {
 	public void generateTarget() {
 		StringBuilder str = new StringBuilder();
 		str.append("def main():\n");
+
 		
+		//declaração de variáveis
+		str.append("\t");
 		str.append("### Declaração de variáveis\n");
-		
 		for (IsiSymbol symbol: varTable.getAll()) {
 			str.append("\t");
 			str.append(symbol.generatePythonCode()+"\n");
 		}
 		str.append("\n");
+		
+		
 		for (AbstractCommand command: comandos) {
-			str.append("\t");
-			str.append(command.generatePythonCode()+"\n");
+			str.append(command.generatePythonCode(1)+"\n");
 		}
 		str.append("\n");
 

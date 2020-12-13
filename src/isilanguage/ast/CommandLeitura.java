@@ -12,9 +12,9 @@ public class CommandLeitura extends AbstractCommand {
 		this.var = var;
 	}
 	@Override
-	public String generatePythonCode() {
+	public String generatePythonCode(int indentLevel) {
 		// TODO Auto-generated method stub
-		return id + " = " + (var.getType()==IsiVariable.NUMBER? "float(input())": "input");
+		return "\t".repeat(indentLevel)+ id + " = " + (var.getType()==IsiVariable.NUMBER? "float(input())": "input()");
 		
 	}
 	@Override

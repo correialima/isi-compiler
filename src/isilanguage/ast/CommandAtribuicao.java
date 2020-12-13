@@ -12,9 +12,9 @@ public class CommandAtribuicao extends AbstractCommand{
 		this.expr = expr;
 	}
 	@Override
-	public String generatePythonCode() {
+	public String generatePythonCode(int indentLevel) {
 		// TODO Auto-generated method stub
-		return id + " = "+expr;
+		return "\t".repeat(indentLevel)+ id + " = "+expr;
 	}
 	@Override
 	public String toString() {

@@ -1,21 +1,15 @@
 programa
 
-  numero a, b;
-  texto  t1;
+numero a,b;
 
-  leia(a);
-  leia(b);
-  
-  a = 1 + 2 * 3 / b*b;
-  
+leia(a);
 
-  se ( a > b ) {
-     escreva (a);
-  }
-  senao {
-     escreva (b);
-  }
-  
-  
+leia(b);
+
+enquanto ( a > b){
+	escreva(b);
+	b = b + 1;
+}
+
 
 fimprog;

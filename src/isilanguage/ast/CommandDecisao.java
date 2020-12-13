@@ -14,19 +14,18 @@ public class CommandDecisao extends AbstractCommand {
 		this.listaFalse = lf;
 	}
 	@Override
-	public String generatePythonCode() {
+	public String generatePythonCode(int indentLevel) {
 		// TODO Auto-generated method stub
+		int nextIndentLevel = indentLevel + 1;
 		StringBuilder str = new StringBuilder();
-		str.append("if ("+condition+"):\n");
+		str.append("\n"+"\t".repeat(indentLevel)+"if ("+condition+"):\n");
 		for (AbstractCommand cmd: listaTrue) {
-			str.append("\t");
-			str.append(cmd.generatePythonCode()+"\n");
+			str.append(cmd.generatePythonCode(nextIndentLevel)+"\n");
 		}
 		if (listaFalse.size() > 0) {
-			str.append("else:\n");
+			str.append("\t".repeat(indentLevel)+"else:\n");
 			for (AbstractCommand cmd: listaFalse) {
-				str.append("\t");
-				str.append(cmd.generatePythonCode()+"\n");
+				str.append(cmd.generatePythonCode(nextIndentLevel)+"\n");
 			}
 		}
 		return str.toString();
