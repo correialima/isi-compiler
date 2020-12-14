@@ -19,7 +19,7 @@ public class CommandLeitura extends AbstractCommand {
 	}
 	@Override
 	public String toString() {
-		return "\n\tCommandLeitura [id=" + id + "]";
+		return "CommandLeitura [id=" + id + "]";
 	}
 
 }

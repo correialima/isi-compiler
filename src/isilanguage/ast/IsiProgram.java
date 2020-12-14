@@ -33,8 +33,8 @@ public class IsiProgram {
 		}
 		str.append("\n");
 
-		//str.append("if __name__ == '__main__':\n");
-		//str.append("\tmain()");
+		str.append("if __name__ == '__main__':\n");
+		str.append("\tmain()");
 		try {
 			FileWriter fr = new FileWriter(new File("output.py"));
 			fr.write(str.toString());

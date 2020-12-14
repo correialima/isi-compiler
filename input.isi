@@ -2,7 +2,7 @@ programa
 
 texto a;
 
-a = "";
+a = "teste";
 
 escreva(a);
 
