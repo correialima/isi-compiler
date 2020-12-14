@@ -1,24 +1,9 @@
 programa
 
-numero a,b;
+texto a;
 
-a = 1;
-b = 2;
+a = "";
 
-se (a == 1){
-	escreva(a);
-	se (a == 1){
-		escreva(a);
-		se( b== 2){
-			escreva(b);
-		}
-	}
-	senao{
-		escreva(a);
-		se( b== 2){
-			escreva(b);
-		}
-	}
-}
+escreva(a);
 
 fimprog;

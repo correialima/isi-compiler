@@ -1,25 +1,10 @@
 def main():
 
 	### Declaração de variáveis
-	a: float
-	b: float
+	a: str
 
-	a = 1
-	b = 2
-
-	if (a==1):
-		print(a)
-
-		if (a==1):
-			print(b)
-		else:
-			print(a)
-
-			if (b==2):
-				print(b)
-
-
-
+	a = " 	 "
+	print(a)
 
 if __name__ == '__main__':
 	main()
