@@ -1,0 +1,26 @@
+programa
+
+numero a, b;
+texto x, y;
+
+a = 1;
+b = 2;
+x = "hello";
+y = "world";
+
+se ( a < b){
+	escreva(x);
+	}
+	
+	se ( a == 1){
+		enquanto(b >= a){
+			escreva(x);
+			leia(b);
+			}
+		}
+	
+	senao{
+		escreva(x);
+		}	
+
+fimprog;

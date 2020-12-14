@@ -1,0 +1,12 @@
+programa
+
+numero a;
+texto x;
+
+leia(a);
+leia(x);
+
+escreva(a);
+escreva(x);
+
+fimprog;

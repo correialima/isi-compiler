@@ -1,0 +1,24 @@
+programa
+
+numero a, b;
+texto x, y;
+
+a = 1;
+b = 2;
+x = "hello";
+y = "world";
+
+se ( a < b){
+	escreva(x);
+	}
+	
+	se ( a == b){
+		escreva(x);
+		escreva(y);
+		}
+	
+	senao{
+		escreva(x);
+		}	
+
+fimprog;

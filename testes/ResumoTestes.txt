@@ -1,0 +1,49 @@
+Teste 1;
+	Status: Compilation Successful
+	1)	Mostra que o programa está aceitando 2 tipos de variáveis (texto e numero);
+	2)	Possui as funções leia(input) e escreva(print).
+	
+Teste 2;
+	Status da Saída: Compilation Successful
+	1)	Mostra a atribuição nas variáveis.
+	
+Teste 3;
+	Status da Saída: Semantic error - Invalid type operation
+	1) Mostra que uma variável de um certo tipo recebeu uma atribuição de tipo diferente
+	
+Teste 4;
+	Status da Saída: Compilation Successful
+	1)	Mostra a implementação da função se e senao.
+
+Teste 5;
+	Status da Saída: Compilation Successful
+	1)	Mostra a implementação da função se (sem a função senao).
+	
+Teste 6;
+	Status da Saída: Compilation Successful
+	1)	Mostra a implementação o encadeamento de funções se (tendo ou não o senao).
+	
+Teste 7;
+	Status da Saída: Semantic error - Invalid type operation
+	1)	Mostra a implementação da verificação de tipos comparação na função se (tendo ou não o senao).
+	
+Teste 8;
+	Status da Saída: Compilation Successful
+	1) Mostra a implementação da função enquanto (que pode estar encadeado ou não).
+	
+Teste 9;
+	Status da Saída: Semantic error - Invalid type operation
+	1)	Mostra a implementação da verificação de tipos comparação na função enquanto (tendo ou não o senao).
+
+Teste 10;
+	Status da Saída: Semantic error - Symbol y not declared
+	1)	Mostra a implementação da verificação se uma variavel foi usada, mas não foi declarada.
+	
+Teste 11;
+	Status da Saída: Semantic error - Symbol y declared but not used.
+	1)	Mostra a implementação da verificação quando uma variável é declarada, porém não é utilizada.
+	
+Teste 12;
+	Status da Saída: Compilation Successful
+	1)	Mostra a implementação do aceite de números decimais.
+	

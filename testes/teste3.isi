@@ -1,0 +1,12 @@
+programa
+
+numero a;
+texto x;
+
+a = "1";
+x = "texto";
+
+escreva(a);
+escreva(x);
+
+fimprog;
