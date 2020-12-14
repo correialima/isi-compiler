@@ -23,7 +23,7 @@ public class IsiProgram {
 		str.append("### Declaração de variáveis\n");
 		for (IsiSymbol symbol: varTable.getAll()) {
 			str.append("\t");
-			str.append(symbol.generatePythonCode()+"\n");
+			str.append("//"+symbol.generatePythonCode()+"\n");
 		}
 		str.append("\n");
 		
@@ -33,8 +33,8 @@ public class IsiProgram {
 		}
 		str.append("\n");
 
-		str.append("if __name__ == '__main__':\n");
-		str.append("\tmain()");
+		//str.append("if __name__ == '__main__':\n");
+		//str.append("\tmain()");
 		try {
 			FileWriter fr = new FileWriter(new File("output.py"));
 			fr.write(str.toString());
