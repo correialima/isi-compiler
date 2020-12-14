@@ -106,6 +106,7 @@ public class IsiLangLexer extends Lexer {
 		private String _exprID;
 		private String _exprContent;
 		private String _exprDecision;
+		private Stack<String> decisionStack = new Stack<String>();
 		private ArrayList<AbstractCommand> listaTrue;
 		private ArrayList<AbstractCommand> listaFalse;
 		private ArrayList<AbstractCommand> listaComandos;

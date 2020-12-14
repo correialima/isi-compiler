@@ -1,15 +1,23 @@
 programa
 
-numero a,b;
+texto a;
+numero n1, n2;
 
-leia(a);
+a = "teste";
 
-leia(b);
+n1 = 2;
 
-enquanto ( a > b){
-	escreva(b);
-	b = b + 1;
+n2 = 10;
+
+se (a<b){
+	escreva(n1);
+	enquanto (a >b){
+		escreva(a);
+	}
+	
 }
-
+senao {
+	escreva(n2);
+}
 
 fimprog;

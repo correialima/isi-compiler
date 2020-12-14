@@ -14,7 +14,7 @@ public class IsiProgram {
 
 	public void generateTarget() {
 		StringBuilder str = new StringBuilder();
-		str.append("def main():\n");
+		str.append("def main():\n\n");
 
 		
 		//declaração de variáveis

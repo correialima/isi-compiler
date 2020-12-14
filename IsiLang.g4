@@ -30,6 +30,7 @@ grammar IsiLang;
 	private String _exprID;
 	private String _exprContent;
 	private String _exprDecision;
+	private Stack<String> decisionStack = new Stack<String>();
 	private ArrayList<AbstractCommand> listaTrue;
 	private ArrayList<AbstractCommand> listaFalse;
 	private ArrayList<AbstractCommand> listaComandos;
@@ -154,7 +155,10 @@ cmdattrib	:  ID { verificaID(_input.LT(-1).getText());
 cmdselecao  :  'se' AP
                     ID    { _exprDecision = _input.LT(-1).getText(); }
                     OPREL { _exprDecision += _input.LT(-1).getText(); }
-                    (ID | NUMBER | TEXT) {_exprDecision += _input.LT(-1).getText(); }
+                    (ID | NUMBER | TEXT) {
+                    	_exprDecision += _input.LT(-1).getText(); 
+                    	decisionStack.push(_exprDecision);
+                    }
                     FP 
                     ACH 
                     { curThread = new ArrayList<AbstractCommand>(); 
@@ -177,7 +181,7 @@ cmdselecao  :  'se' AP
                    )?
                    	{
                    		listaFalse = stack.pop();
-                   		CommandDecisao cmd = new CommandDecisao(_exprDecision, listaTrue, listaFalse);
+                   		CommandDecisao cmd = new CommandDecisao(decisionStack.pop(), listaTrue, listaFalse);
                    		stack.peek().add(cmd);
                    	}
             ;
@@ -187,7 +191,11 @@ cmdrepeticao :
 					AP
                     ID    { _exprDecision = _input.LT(-1).getText(); }
                     OPREL { _exprDecision += _input.LT(-1).getText(); }
-                    (ID | NUMBER | TEXT) {_exprDecision += _input.LT(-1).getText(); }
+                    (ID | NUMBER | TEXT) {
+                    	_exprDecision += _input.LT(-1).getText();  
+                    	decisionStack.push(_exprDecision);
+                    	
+                    }
                     FP 
                     ACH 
                     { curThread = new ArrayList<AbstractCommand>(); 
@@ -198,9 +206,7 @@ cmdrepeticao :
                     FCH 
                     {
                        listaComandos = stack.pop();	
-                    }
-                    {
-                   		CommandRepeticao cmd = new CommandRepeticao(_exprDecision, listaComandos);
+                   		CommandRepeticao cmd = new CommandRepeticao(decisionStack.pop(), listaComandos);
                    		stack.peek().add(cmd);
                    	}
             ;

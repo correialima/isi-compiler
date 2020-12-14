@@ -26,5 +26,9 @@ public class CommandRepeticao extends AbstractCommand{
 		
 		return str.toString();
 	}
+	@Override
+	public String toString() {
+		return "CommandRepeticao [condition=" + condition + ", listaComandos=" + listaComandos + "]";
+	}
 
 }
