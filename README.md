@@ -37,19 +37,19 @@ O checklist abaixo detalha os requisitos obrigatórios mínimos no projeto.
 | -------------                                         |:--------------:           |  ---  |
 | Possui 2 tipos de variáveis                           | :heavy_check_mark: |                        |
 | Possui a estrutura if..else                           | :heavy_check_mark:  |                         |
-| 1ª Estrutura de Repetição                             |  | estrutura de repetição "enquanto"                        | 
+| 1ª Estrutura de Repetição                             | :heavy_check_mark:  | estrutura de repetição "enquanto"                        | 
 | Verificar se a variável foi atribuída ou não          | :heavy_check_mark:  |                       |
 | Possui operações de Entrada e Saída                   | :heavy_check_mark:  |                        |      
 | Aceita números decimais                               | :heavy_check_mark:  |                       |
 | Verificar se variável foi declarada                   | :heavy_check_mark:  |                       |
-| Verificar se variável declarada fou ou não usada      |  |                       |     
+| Verificar se variável declarada foi ou não usada      | :heavy_check_mark:  |                       |     
 | Qual a linguagem destino? (C/Java/Python)             | Python |                        |
 
 ## Requisitos Opcionais
 
 | Requisito                                             | Status                    | Comentário |
 | -------------                                         |:--------------:           |  ---  |
-| Requisito                           |              | :heavy_check_mark:  |
+| Requisito                                             |              | :heavy_check_mark:  |
 
 # Vídeo Demonstração
 
