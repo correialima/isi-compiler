@@ -28,9 +28,10 @@ O checklist abaixo detalha os requisitos obrigatórios mínimos no projeto.
 
 ## Requisitos Opcionais
 
-| Requisito                                             | Status                    | 
-| -------------                                         |:--------------:           |
-| Verificação de compatibilidade de tipos em operações de atribuição e comparação|  :heavy_check_mark:              |
+| Requisito                                                                         | Status                    | 
+| -------------                                                                     |:--------------:           |
+| Verificação de compatibilidade de tipos em operações de atribuição e comparação   |  :heavy_check_mark:              |
+| Estrutura if sem o else obrigatório                                               |  :heavy_check_mark:              |
 
 # Vídeo Demonstração
 
