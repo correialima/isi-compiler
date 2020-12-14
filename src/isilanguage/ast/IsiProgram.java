@@ -3,6 +3,7 @@ package isilanguage.ast;
 import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import isilanguage.datastructures.IsiSymbol;
 import isilanguage.datastructures.IsiSymbolTable;
@@ -68,5 +69,5 @@ public class IsiProgram {
 	public void setProgramName(String programName) {
 		this.programName = programName;
 	}
-
+	
 }

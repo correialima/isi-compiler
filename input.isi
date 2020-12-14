@@ -1,23 +1,24 @@
 programa
 
-texto a;
-numero n1, n2;
+numero a,b;
 
-a = "teste";
+a = 1;
+b = 2;
 
-n1 = 2;
-
-n2 = 10;
-
-se (a<b){
-	escreva(n1);
-	enquanto (a >b){
+se (a == 1){
+	escreva(a);
+	se (a == 1){
 		escreva(a);
+		se( b== 2){
+			escreva(b);
+		}
 	}
-	
-}
-senao {
-	escreva(n2);
+	senao{
+		escreva(a);
+		se( b== 2){
+			escreva(b);
+		}
+	}
 }
 
 fimprog;

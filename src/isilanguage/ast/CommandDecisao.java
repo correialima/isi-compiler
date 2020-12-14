@@ -13,6 +13,12 @@ public class CommandDecisao extends AbstractCommand {
 		this.listaTrue = lt;
 		this.listaFalse = lf;
 	}
+	
+	public CommandDecisao(String condition, ArrayList<AbstractCommand> lt) {
+		this.condition = condition;
+		this.listaTrue = lt;
+	}
+	
 	@Override
 	public String generatePythonCode(int indentLevel) {
 		// TODO Auto-generated method stub
@@ -22,7 +28,7 @@ public class CommandDecisao extends AbstractCommand {
 		for (AbstractCommand cmd: listaTrue) {
 			str.append(cmd.generatePythonCode(nextIndentLevel)+"\n");
 		}
-		if (listaFalse.size() > 0) {
+		if (listaFalse != null) {
 			str.append("\t".repeat(indentLevel)+"else:\n");
 			for (AbstractCommand cmd: listaFalse) {
 				str.append(cmd.generatePythonCode(nextIndentLevel)+"\n");

@@ -31,8 +31,5 @@ public class IsiSymbolTable {
 			lista.add(symbol);
 		}
 		return lista;
-	}
-
-	
-	
+	}	
 }

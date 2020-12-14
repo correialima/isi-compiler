@@ -7,11 +7,13 @@ public class IsiVariable extends IsiSymbol {
 
 	private int type;
 	private String value;
+	private boolean used;
 
 	public IsiVariable(String name, int type, String value) {
 		super(name);
 		this.type = type;
 		this.value = value;
+		this.used = false;
 	}
 
 	public int getType() {
@@ -38,11 +40,20 @@ public class IsiVariable extends IsiSymbol {
 	public String generatePythonCode() {
 		String str;
 		if (type == NUMBER) {
-			str = "numero";
+			str = "float";
 		} else {
-			str = "texto";
+			str = "str";
 		}
-		return "# Em Python não existe a declaração de variáveis \t" + str + "\t" + super.name;
+		return super.name + ": " +str;
+	}
+
+	@Override
+	public boolean isUsed() {
+		return used;
+	}
+	
+	public void setUsed() {
+		this.used = true;
 	}
 
 }

@@ -94,6 +94,7 @@ public class IsiLangLexer extends Lexer {
 
 
 		private int _tipo;
+		private int _checkTipo;
 		private String _varName;
 		private String _varValue;
 		private IsiSymbolTable symbolTable = new IsiSymbolTable();
@@ -107,6 +108,7 @@ public class IsiLangLexer extends Lexer {
 		private String _exprContent;
 		private String _exprDecision;
 		private Stack<String> decisionStack = new Stack<String>();
+		private Stack<Boolean> senaoStack = new Stack<Boolean>();
 		private ArrayList<AbstractCommand> listaTrue;
 		private ArrayList<AbstractCommand> listaFalse;
 		private ArrayList<AbstractCommand> listaComandos;

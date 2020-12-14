@@ -18,6 +18,7 @@ grammar IsiLang;
 
 @members{
 	private int _tipo;
+	private int _checkTipo;
 	private String _varName;
 	private String _varValue;
 	private IsiSymbolTable symbolTable = new IsiSymbolTable();
@@ -31,6 +32,7 @@ grammar IsiLang;
 	private String _exprContent;
 	private String _exprDecision;
 	private Stack<String> decisionStack = new Stack<String>();
+	private Stack<Boolean> senaoStack = new Stack<Boolean>();
 	private ArrayList<AbstractCommand> listaTrue;
 	private ArrayList<AbstractCommand> listaFalse;
 	private ArrayList<AbstractCommand> listaComandos;
@@ -55,6 +57,14 @@ grammar IsiLang;
 prog	: 'programa' decl bloco  'fimprog;'
            {  program.setVarTable(symbolTable);
            	  program.setComandos(stack.pop());
+           	  
+           	  for(IsiSymbol symbol: symbolTable.getAll()){
+           	  	if (!symbol.isUsed()){
+	            	throw new IsiSemanticException("Symbol "+symbol.getName()+" declared but not used.");
+           	  	}
+           	  }
+           	  
+           	  
            	 
            } 
 		;
@@ -109,9 +119,11 @@ cmd		:  cmdleitura
 		;
 		
 cmdleitura	: 'leia' AP
-                     ID { verificaID(_input.LT(-1).getText());
-                     	  _readID = _input.LT(-1).getText();
-                        } 
+                     ID { 
+                     	verificaID(_input.LT(-1).getText());
+                     	_readID = _input.LT(-1).getText();
+						symbolTable.get(_readID).setUsed();	
+					} 
                      FP 
                      SC 
                      
@@ -141,8 +153,12 @@ cmdescrita	: 'escreva'
 			
 cmdattrib	:  ID { verificaID(_input.LT(-1).getText());
                     _exprID = _input.LT(-1).getText();
+	                symbolTable.get(_exprID).setUsed();
+	                _checkTipo = symbolTable.get(_exprID).getType();
                    } 
-               ATTR { _exprContent = ""; } 
+               ATTR { 
+               		_exprContent = "";
+               } 
                expr 
                SC
                {
@@ -153,15 +169,40 @@ cmdattrib	:  ID { verificaID(_input.LT(-1).getText());
 			
 			
 cmdselecao  :  'se' AP
-                    ID    { _exprDecision = _input.LT(-1).getText(); }
+                    ID    { 
+                    	_exprDecision = _input.LT(-1).getText();
+                    	verificaID(_input.LT(-1).getText());
+	                	_checkTipo = symbolTable.get(_exprDecision).getType();
+                    }
                     OPREL { _exprDecision += _input.LT(-1).getText(); }
-                    (ID | NUMBER | TEXT) {
+                    
+                    (ID {
                     	_exprDecision += _input.LT(-1).getText(); 
                     	decisionStack.push(_exprDecision);
-                    }
+                    	verificaID(_input.LT(-1).getText());
+                    	if (_checkTipo != symbolTable.get(_input.LT(-1).getText()).getType()) {
+							throw new IsiSemanticException("Invalid type operation");
+						}
+                    	
+                    }| NUMBER{
+                    	_exprDecision += _input.LT(-1).getText(); 
+                    	decisionStack.push(_exprDecision);
+                    	if (_checkTipo != 0) {
+							throw new IsiSemanticException("Invalid type operation");
+						}
+                    	
+                    } | TEXT{
+                    	_exprDecision += _input.LT(-1).getText(); 
+                    	decisionStack.push(_exprDecision);
+                    	if (_checkTipo != 1) {
+							throw new IsiSemanticException("Invalid type operation");
+						}
+                    }) 
                     FP 
                     ACH 
-                    { curThread = new ArrayList<AbstractCommand>(); 
+                    { 
+						senaoStack.push(false);
+						curThread = new ArrayList<AbstractCommand>(); 
                       stack.push(curThread);
                     }
                     (cmd)+ 
@@ -173,29 +214,63 @@ cmdselecao  :  'se' AP
                    ('senao' 
                    	 ACH
                    	 {
+                   	 	senaoStack.pop();
+                   	 	senaoStack.push(true);
                    	 	curThread = new ArrayList<AbstractCommand>();
                    	 	stack.push(curThread);
                    	 } 
                    	(cmd+) 
+                   	{
+                   		listaFalse = stack.pop();
+                   	}
                    	FCH
                    )?
                    	{
-                   		listaFalse = stack.pop();
-                   		CommandDecisao cmd = new CommandDecisao(decisionStack.pop(), listaTrue, listaFalse);
-                   		stack.peek().add(cmd);
+                   		if (senaoStack.pop()){
+                   			
+	                   		CommandDecisao cmd = new CommandDecisao(decisionStack.pop(), listaTrue, listaFalse);
+                   			stack.peek().add(cmd);
+	                   		
+                   		}else{
+                   			CommandDecisao cmd = new CommandDecisao(decisionStack.pop(), listaTrue);
+                   			stack.peek().add(cmd);
+                   		
+                   		}
                    	}
             ;
 
 cmdrepeticao :
 				'enquanto'
 					AP
-                    ID    { _exprDecision = _input.LT(-1).getText(); }
-                    OPREL { _exprDecision += _input.LT(-1).getText(); }
-                    (ID | NUMBER | TEXT) {
-                    	_exprDecision += _input.LT(-1).getText();  
-                    	decisionStack.push(_exprDecision);
-                    	
+                    ID    { 
+                    	_exprDecision = _input.LT(-1).getText();
+                    	verificaID(_input.LT(-1).getText());
+	                	_checkTipo = symbolTable.get(_exprDecision).getType();
                     }
+                    OPREL { _exprDecision += _input.LT(-1).getText(); }
+                    
+                    (ID {
+                    	_exprDecision += _input.LT(-1).getText(); 
+                    	decisionStack.push(_exprDecision);
+                    	verificaID(_input.LT(-1).getText());
+                    	if (_checkTipo != symbolTable.get(_input.LT(-1).getText()).getType()) {
+							throw new IsiSemanticException("Invalid type operation");
+						}
+                    	
+                    }| NUMBER{
+                    	_exprDecision += _input.LT(-1).getText(); 
+                    	decisionStack.push(_exprDecision);
+                    	if (_checkTipo != 0) {
+							throw new IsiSemanticException("Invalid type operation");
+						}
+                    	
+                    } | TEXT{
+                    	_exprDecision += _input.LT(-1).getText(); 
+                    	decisionStack.push(_exprDecision);
+                    	if (_checkTipo != 1) {
+							throw new IsiSemanticException("Invalid type operation");
+						}
+                    }) 
                     FP 
                     ACH 
                     { curThread = new ArrayList<AbstractCommand>(); 
@@ -217,17 +292,29 @@ expr		:  termo (
 	            termo
 	            )*
 	        |
-	        	TEXT { _exprContent += _input.LT(-1).getText();}
+	        	TEXT { 
+	        		_exprContent += _input.LT(-1).getText();
+					if (_checkTipo != 1) {
+						throw new IsiSemanticException("Invalid type operation");
+					}	        	
+	        	}
 	        	
 			;	
 			
 termo		: ID { verificaID(_input.LT(-1).getText());
 	               _exprContent += _input.LT(-1).getText();
+	               if (_checkTipo != symbolTable.get(_exprContent).getType()) {
+						throw new IsiSemanticException("Invalid type operation");
+					}
+	               
                  } 
             | 
               NUMBER
               {
               	_exprContent += _input.LT(-1).getText();
+              	if (_checkTipo != 0) {
+						throw new IsiSemanticException("Invalid type operation");
+					}
               }
 			;
 			
