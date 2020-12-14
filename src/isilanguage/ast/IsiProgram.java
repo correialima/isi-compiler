@@ -23,7 +23,7 @@ public class IsiProgram {
 		str.append("### Declaração de variáveis\n");
 		for (IsiSymbol symbol: varTable.getAll()) {
 			str.append("\t");
-			str.append("//"+symbol.generatePythonCode()+"\n");
+			str.append(symbol.generatePythonCode()+"\n");
 		}
 		str.append("\n");
 		
