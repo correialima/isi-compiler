@@ -19,7 +19,7 @@ public class MainClass {
 			IsiLangLexer lexer;
 			IsiLangParser parser;
 			
-			String teste = "3";
+			String teste = "7";
 			
 			// leio o arquivo "input.isi" e isso é entrada para o Analisador Lexico
 			lexer = new IsiLangLexer(CharStreams.fromFileName("./testes/teste"+teste+".isi"));

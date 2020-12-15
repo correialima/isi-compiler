@@ -10,18 +10,18 @@ y = "Mundo";
 
 se ( a < b){
 	escreva(x);
-	}
 	
 	se ( a == 1){
 		enquanto(b >= a){
 			escreva(x);
 			leia(b);
 			a = b + 1.1235813;
-			}
 		}
+	}
 	
 	senao{
 		escreva(x);
-		}	
+	}
+}	
 
 fimprog;

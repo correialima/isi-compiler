@@ -10,9 +10,9 @@ y = "world";
 
 se ( a < b){
 	escreva(x);
-	}
+}
 senao{
 	escreva(y);
-	}
+}
 
 fimprog;
